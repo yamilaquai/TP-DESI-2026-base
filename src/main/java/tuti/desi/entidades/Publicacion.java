@@ -1,7 +1,6 @@
 package tuti.desi.entidades;
 
 import jakarta.persistence.*;
-//import jakarta.validation.*;
 
 import tuti.desi.enums.*;
 import java.math.BigDecimal;
@@ -30,14 +29,14 @@ public class Publicacion{
 	}
 	
 	public Publicacion(BigDecimal precioMensual, String condiciones, LocalDate fechaPublicacion, EstadoPublicacion estado, 
-			boolean eliminado, String descripcion) {
+			boolean eliminado) {
 		super();
 		this.precioMensual = precioMensual;
 		this.condiciones = condiciones;
 		this.fechaPublicacion = fechaPublicacion;
 		this.estado = estado;
 		this.eliminado = eliminado;
-		this.descripcion = descripcion;
+		
 	}
 
 	
@@ -69,10 +68,7 @@ public class Publicacion{
 		return eliminado;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
-
+	
 	
 	
 	
@@ -103,12 +99,5 @@ public class Publicacion{
 		this.eliminado = eliminado;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	
-	
-	
-	
 	
 }
