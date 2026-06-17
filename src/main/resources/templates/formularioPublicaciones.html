@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alta Publicación</title>
+</head>
+
+<body class="publicaciones-container">
+
+<h1 class="publicaciones-title">Alta de Publicación</h1>
+<div th:if="${error}" class="error-box">
+    <p th:text="${error}"></p>
+</div>
+<form class="publicaciones-form"
+      th:action="@{/publicaciones/guardar}"
+      th:object="${publicacion}"
+      method="post">
+
+    <!-- PROPIEDAD -->
+    <label>Propiedad:</label>
+    <select th:field="*{propiedad}">
+        <option value="">-- Seleccionar --</option>
+        <option th:each="p : ${propiedades}"
+                th:value="${p}"
+                th:text="${p.descripcion}">
+        </option>
+    </select>
+
+    <br><br>
+
+    <!-- PRECIO -->
+    <label>Precio mensual:</label>
+    <input type="number"
+           min="0"
+           step="100"
+           th:field="*{precioMensual}" />
+
+    <br><br>
+
+    <!-- CONDICIONES -->
+    <label>Condiciones:</label>
+    <textarea th:field="*{condiciones}"></textarea>
+
+    <br><br>
+
+    <!-- DESCRIPCIÓN -->
+    <label>Descripción:</label>
+    <textarea th:field="*{descripcion}"></textarea>
+
+    <br><br>
+
+    <!-- ESTADO -->
+    <label>Estado:</label>
+    <select th:field="*{estado}">
+        <option value="">-- Seleccionar --</option>
+        <option th:each="e : ${estados}"
+                th:value="${e}"
+                th:text="${e}">
+        </option>
+    </select>
+
+    <br><br>
+	<!-- fecha de publicación -->
+	<label>Fecha de Publicación:</label>
+	<input type="date" th:field="*{fechaPublicacion}" required />
+
+	    <br><br>
+    <button type="submit">Guardar</button>
+
+</form>
+
+<br>
+
+<a th:href="@{/listadoPublicaciones}">Volver</a>
+
+</body>
