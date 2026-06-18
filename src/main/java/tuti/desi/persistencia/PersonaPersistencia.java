@@ -8,7 +8,7 @@ import tuti.desi.entidades.Persona;
 import java.util.List;
 
 @Repository
-public interface personaPersistencia extends JpaRepository<Persona, Long> {
+public interface PersonaPersistencia extends JpaRepository<Persona, Long> {
 
     /** Todas las personas (original) */
     @Query("SELECT p FROM Persona p")

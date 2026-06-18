@@ -9,18 +9,18 @@ import tuti.desi.entidades.Propiedad;
 import tuti.desi.enums.EstadoContrato;
 import tuti.desi.enums.EstadoDisponibilidad;
 import tuti.desi.persistencia.contratoPersistencia;
-import tuti.desi.persistencia.personaPersistencia;
-import tuti.desi.persistencia.propiedadPersistencia;
+import tuti.desi.persistencia.PersonaPersistencia;
+import tuti.desi.persistencia.PropiedadPersistencia;
 
 import java.util.List;
 
 @Service
 @Transactional
-public class contratoServicios {
+public class ContratoServicios {
 
     @Autowired private contratoPersistencia contratoRepo;
-    @Autowired private personaPersistencia  personaRepo;
-    @Autowired private propiedadPersistencia propiedadRepo;
+    @Autowired private PersonaPersistencia  personaRepo;
+    @Autowired private PropiedadPersistencia propiedadRepo;
 
     // ── HU 3.1: Alta ──────────────────────────────────────────────────────────
 
