@@ -12,9 +12,9 @@ import tuti.desi.entidades.Persona;
 import tuti.desi.entidades.Propiedad;
 import tuti.desi.enums.EstadoContrato;
 import tuti.desi.persistencia.contratoPersistencia;
-import tuti.desi.persistencia.personaPersistencia;
-import tuti.desi.persistencia.propiedadPersistencia;
-import tuti.desi.servicios.contratoServicios;
+import tuti.desi.persistencia.PersonaPersistencia;
+import tuti.desi.persistencia.PropiedadPersistencia;
+import tuti.desi.servicios.ContratoServicios;
 
 import java.util.List;
 
@@ -22,10 +22,10 @@ import java.util.List;
 @RequestMapping("/contratos")
 public class ContratoController {
 
-    @Autowired private contratoServicios   miServicioDeContratos;
+    @Autowired private ContratoServicios   miServicioDeContratos;
     @Autowired private contratoPersistencia contratoRepo;
-    @Autowired private propiedadPersistencia propiedadRepo;
-    @Autowired private personaPersistencia   personaRepo;
+    @Autowired private PropiedadPersistencia propiedadRepo;
+    @Autowired private PersonaPersistencia   personaRepo;
 
     // ── HU 3.1: Formulario de alta ────────────────────────────────────────────
 

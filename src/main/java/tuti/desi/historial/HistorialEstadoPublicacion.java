@@ -1,19 +1,18 @@
 package tuti.desi.historial;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import tuti.desi.entidades.Publicacion;
 import tuti.desi.enums.EstadoPublicacion;
-
-import java.time.LocalDateTime;
 
 @Entity
 public class HistorialEstadoPublicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
-    // AGREGADO: estado anterior (para trazabilidad completa)
     @Enumerated(EnumType.STRING)
     private EstadoPublicacion estadoAnterior;
 
@@ -22,30 +21,50 @@ public class HistorialEstadoPublicacion {
 
     private LocalDateTime fechaHora;
 
-    // AGREGADO: FK a Publicacion (faltaba en el original)
     @ManyToOne
     @JoinColumn(name = "publicacion_id")
     private Publicacion publicacion;
 
-    public HistorialEstadoPublicacion() {}
+    public HistorialEstadoPublicacion() {
+    }
 
-    // Getters
-    public long getId()                             { return id; }
-    public EstadoPublicacion getEstadoAnterior()    { return estadoAnterior; }
-    public EstadoPublicacion getEstadoNuevo()       { return estadoNuevo; }
-    public LocalDateTime getFechaHora()             { return fechaHora; }
-    public Publicacion getPublicacion()             { return publicacion; }
+    public Long getId() {
+        return id;
+    }
 
-    // Setters
-    public void setId(long id)                              { this.id = id; }
-    public void setEstadoAnterior(EstadoPublicacion e)      { this.estadoAnterior = e; }
-    public void setEstadoNuevo(EstadoPublicacion e)         { this.estadoNuevo = e; }
-    public void setFechaHora(LocalDateTime f)               { this.fechaHora = f; }
-    public void setPublicacion(Publicacion p)               { this.publicacion = p; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    // --- Retrocompatibilidad con código original que usaba getEstado()/setEstado() ---
-    /** @deprecated usar getEstadoNuevo() */
-    @Deprecated public EstadoPublicacion getEstado()        { return estadoNuevo; }
-    /** @deprecated usar setEstadoNuevo() */
-    @Deprecated public void setEstado(EstadoPublicacion e)  { this.estadoNuevo = e; }
+    public EstadoPublicacion getEstadoAnterior() {
+        return estadoAnterior;
+    }
+
+    public void setEstadoAnterior(EstadoPublicacion estadoAnterior) {
+        this.estadoAnterior = estadoAnterior;
+    }
+
+    public EstadoPublicacion getEstadoNuevo() {
+        return estadoNuevo;
+    }
+
+    public void setEstadoNuevo(EstadoPublicacion estadoNuevo) {
+        this.estadoNuevo = estadoNuevo;
+    }
+
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
+    }
+
+    public void setFechaHora(LocalDateTime fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public Publicacion getPublicacion() {
+        return publicacion;
+    }
+
+    public void setPublicacion(Publicacion publicacion) {
+        this.publicacion = publicacion;
+    }
 }
